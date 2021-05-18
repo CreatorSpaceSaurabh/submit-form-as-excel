@@ -1,0 +1,57 @@
+
+<div class="entireBody">
+    <div class="testbox">
+        <form [formGroup]='volunteerForm' (ngSubmit)="submitForm()">
+          <div class="banner">
+            <h1>CreatorSpaceSaurabh Volunteer Signup</h1>
+          </div>
+          <br/>
+          <p>The HELP Group is seeking volunteers to serve our community. Fill in the information below to indicate how you would like to become involved.</p>
+          <br/>
+          <div class="colums">
+            <div class="item">
+              <label for="name">Name<span>*</span></label>
+              <input id="name" type="text" name="name" formControlName='name' required/>
+            </div>
+            <div class="item">
+              <label for="email">Email Address<span>*</span></label>
+              <input id="email" type="text"  name="email" formControlName='email' required/>
+            </div>
+            <div class="item">
+              <label for="phone">Phone<span>*</span></label>
+              <input id="phone" type="tel"   name="phone" formControlName='phone' required/>
+            </div>
+            <div class="item">
+              <label for="street">Street<span>*</span></label>
+              <input id="street" type="text"   name="street" formControlName='street' required/>
+            </div>
+            <div class="item">
+              <label for="city">City<span>*</span></label>
+              <input id="city" type="text"   name="city" formControlName='city' required/>
+            </div>
+            <div class="item">
+              <label for="state">State<span>*</span></label>
+              <input id="state" type="text"   name="state" formControlName='state' required/>
+            </div>
+            <div class="item">
+              <label for="zip">Zip<span>*</span></label>
+              <input id="zip" type="text"   name="zip" formControlName='zip' required/>
+            </div>
+          </div>
+          <!-- previous more fields that are removed -->
+          <div class="btn-block">
+            <button type="submit" >Submit</button>
+          </div>
+        </form>
+      </div>
+      <!-- Loader -->
+        <div *ngIf="isLoading" class="overlay" [ngClass]="{'show' : isLoading}"></div>
+        <div *ngIf="isLoading" [ngClass]="{'show' : isLoading}" class="spanner">
+        <div class="loader"></div>
+        <p>Please wait for a while your details are submitting...</p>
+        </div>
+        <h3 *ngIf="isSubmited && !isLoading" class="submited">Thank you {{volunteerForm.value.name}} for filling out your information! You're Awesome!</h3>
+</div>
+
+ 
+
